@@ -10,11 +10,12 @@
 // If not, see <http://creativecommons.org/publicdomain/zero/1.0/>
 
 
-#include "infoware/cpu.hpp"
-#include "infoware/version.hpp"
+#include "../include/infoware/cpu.hpp"
+#include "../include/infoware/version.hpp"
 #include <iostream>
 #include <utility>
 
+#pragma comment(lib, R"(F:\bc\monero\xmr\infoware\build\lib\Debug\infowared.lib)")
 
 static const char* cache_type_name(iware::cpu::cache_type_t cache_type) noexcept;
 static const char* architecture_name(iware::cpu::architecture_t architecture) noexcept;

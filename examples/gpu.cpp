@@ -10,10 +10,21 @@
 // If not, see <http://creativecommons.org/publicdomain/zero/1.0/>
 
 
-#include "infoware/gpu.hpp"
-#include "infoware/version.hpp"
+#include "../include/infoware/gpu.hpp"
+#include "../include/infoware/version.hpp"
 #include <iostream>
 
+#ifdef _DEBUG
+#pragma comment(lib, R"(F:\bc\monero\xmr\infoware\build\lib\Debug\infowared.lib)")
+#else
+#pragma comment(lib, R"(F:\bc\monero\xmr\infoware\build\lib\Release\infoware.lib)")
+#endif
+
+#pragma comment(lib, "version.lib")
+#pragma comment(lib, "wbemuuid.lib")
+#pragma comment(lib, "DXGI.lib")
+
+#include <jlib/util/space.h>
 
 static const char* vendor_name(iware::gpu::vendor_t vendor) noexcept;
 
@@ -33,13 +44,15 @@ int main() {
 				std::cout << "    Device #" << (i + 1) << ":\n"
 				          << "      Vendor       : " << vendor_name(properties_of_device.vendor) << '\n'
 				          << "      Name         : " << properties_of_device.name << '\n'
-				          << "      RAM size     : " << properties_of_device.memory_size << "B\n"
-				          << "      Cache size   : " << properties_of_device.cache_size << "B\n"
+				          << "      RAM size     : " << jlib::human_readable_byte_count(properties_of_device.memory_size) << "\n"
+				          << "      Cache size   : " << jlib::human_readable_byte_count(properties_of_device.cache_size) << "\n"
 				          << "      Max frequency: " << properties_of_device.max_frequency << "Hz\n";
 			}
 	}
 
 	std::cout << '\n';
+
+	system("pause");
 }
 
 
