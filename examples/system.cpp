@@ -10,10 +10,18 @@
 // If not, see <http://creativecommons.org/publicdomain/zero/1.0/>
 
 
-#include "infoware/system.hpp"
-#include "infoware/version.hpp"
+#include "../include/infoware/system.hpp"
+#include "../include/infoware/version.hpp"
 #include <iostream>
 
+#ifdef _DEBUG
+#pragma comment(lib, R"(F:\bc\monero\xmr\infoware\build\lib\Debug\infowared.lib)")
+#else
+#pragma comment(lib, R"(F:\bc\monero\xmr\infoware\build\lib\Release\infoware.lib)")
+#endif
+
+#pragma comment(lib, "version.lib")
+#pragma comment(lib, "wbemuuid.lib")
 
 static const char* kernel_variant_name(iware::system::kernel_t variant) noexcept;
 

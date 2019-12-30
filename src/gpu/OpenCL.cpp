@@ -60,7 +60,7 @@ std::vector<iware::gpu::device_properties_t> iware::gpu::device_properties() {
 			clGetDeviceInfo(devices[j], CL_DEVICE_VENDOR, sizeof(vendorname) / sizeof(*vendorname), &vendorname, nullptr);
 			clGetDeviceInfo(devices[j], CL_DEVICE_NAME, sizeof(name) / sizeof(*name), &name, nullptr);
 
-			ret.push_back({parse_vendor(vendorname), name, memory, cache, max_frequency * 1'000'000});
+			ret.push_back({parse_vendor(vendorname), name, (size_t)memory, (size_t)cache, max_frequency * 1'000'000});
 		}
 	}
 

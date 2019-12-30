@@ -10,12 +10,18 @@
 // If not, see <http://creativecommons.org/publicdomain/zero/1.0/>
 
 
-#include "infoware/pci.hpp"
-#include "infoware/version.hpp"
+#include "../include/infoware/pci.hpp"
+#include "../include/infoware/version.hpp"
 #include <cstdint>
 #include <cstdlib>
 #include <iomanip>
 #include <iostream>
+
+#ifdef _DEBUG
+#pragma comment(lib, R"(F:\bc\monero\xmr\infoware\build\lib\Debug\infowared.lib)")
+#else
+#pragma comment(lib, R"(F:\bc\monero\xmr\infoware\build\lib\Release\infoware.lib)")
+#endif
 
 
 namespace {
@@ -59,6 +65,7 @@ int main(int, const char** argv) {
 				return (vendor_ok ? 0 : 1) | (device.device_name ? 0 : 2);
 		}
 	}
+	system("pause");
 }
 
 

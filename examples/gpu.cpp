@@ -24,6 +24,9 @@
 #pragma comment(lib, "wbemuuid.lib")
 #pragma comment(lib, "DXGI.lib")
 
+
+#pragma comment(lib, R"("F:\bc\monero\xmr\infoware\include\CL\OpenCL.lib")")
+
 #include <jlib/util/space.h>
 
 static const char* vendor_name(iware::gpu::vendor_t vendor) noexcept;
